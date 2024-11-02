@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- font design -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS DESIGN -->
+    <link rel="stylesheet" href="assets/CSS/style.css" />
+    <link rel="icon" href="assets/IMAGES/AUFA'S LOGO.png" type="image/png" />
+
+    <!-- CONTACT US DESIGN  -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "4_krrAjHjrofd8jo3",
+        });
+      })();
+    </script>
+
+    <title>Aufa's portofolio</title>
+  </head>
+  <body>
+    <!-- HEADER DESIGN -->
+    <header class="header">
+      <!-- <a href="#" class="logo">portofolio</a> -->
+      <img src="/assets/IMAGES/AUFA'S LOGO.png" alt="" class="logo" />
+      <i class="fa-solid fa-bars" id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about" class="active">About</a>
+        <!-- <a href="#service" class="active">service</a> -->
+        <a href="#project" class="active">Projects</a>
+        <a href="#contact" class="active">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HOME SECTION DESIGN -->
+    <section class="home" id="home">
+      <div class="home-content">
+        <h1>Aufa Ekananda Hadyan Putra</h1>
+        <h3>i'm a <span class="multiple-text"></span></h3>
+
+        <div class="social-media">
+          <a href="https://www.linkedin.com/in/aufa-ekananda/"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+          <a href="https://github.com/AufaNanda"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+          <a
+            href="https://www.instagram.com/aufaekananda?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </div>
+        <a href="/assets/IMAGES/Aufa's CV .pdf" class="btn">Download CV</a>
+      </div>
+
+      <!-- <div class="home-img">
+        <img src="assets/IMAGES/Aufa_HIMTI.jpg" alt="" />
+      </div> -->
+    </section>
+
+    <!-- ABOUT SECTION DESIGN -->
+
+    <section class="about" id="about">
+      <div class="about-img">
+        <h1 class="about-title">ABOUT</h1>
+        <img src="assets/IMAGES/Aufa Profil.JPG" alt="" />
+      </div>
+
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3>Hi everyone, aufa's here</h3>
+        <p>
+          I'm an undergraduate Computer Science student at BINUS University,
+          passionate in Python and SQL. Enjoy solving complex problems and
+          optimizing database systems. Additionally, interested in marketing
+          strategy, with experience in publication and marketing, which has
+          sharpened their communication and strategic planning skills.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION DESIGN -->
+    <section class="skills" id="skills">
+      <h2 class="heading">My <span>Skills</span></h2>
+
+      <div class="skills-container">
+        <div class="skill-box">
+          <img src="assets/IMAGES/python.png" alt="Python" />
+          <h3>Python</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/mysql.png" alt="SQL" />
+          <h3>SQL</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/spreadsheet.png" alt="Data Analysis" />
+          <h3>Spreadsheet</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/office.png" alt="JavaScript" />
+          <h3>Microsoft Office</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/Tableau.png" alt="JavaScript" />
+          <h3>Tableau</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/html.png" alt="JavaScript" />
+          <h3>HTML</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/css-3.png" alt="JavaScript" />
+          <h3>CSS</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/java-script.png" alt="JavaScript" />
+          <h3>JavaScript</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/r.png" alt="JavaScript" />
+          <h3>R</h3>
+        </div>
+
+        <div class="skill-box">
+          <img src="assets/IMAGES/pngwing.com (4).png" alt="JavaScript" />
+          <h3>C</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT SECTION DESIGN  -->
+
+    <section class="project" id="project">
+      <h2 class="heading">My <span>Projects</span></h2>
+
+      <div class="project-container">
+        <a
+          href="https://github.com/AufaNanda/AufaEkananda_DataProject/tree/main/Classification_indicators_of_Heart_Disease"
+          target="_blank"
+          class="project-link"
+        >
+          <div class="project-box">
+            <img src="assets/IMAGES/Heart-Disease.jpg" alt="" />
+            <div class="project-layer">
+              <h4>Machine Learning</h4>
+              <p>Classification indicators of Heart Disease</p>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://github.com/AufaNanda/AufaEkananda_DataProject/tree/0bb23a27cf3f6e47e40e46fd7fbd8dc2837e45cf/Exploratory%20data%20analysis%20Sales%20Coffee"
+          target="_blank"
+          class="project-link"
+        >
+          <div class="project-box">
+            <img src="assets/IMAGES/Sales-Coffee.png" alt="" />
+            <div class="project-layer">
+              <h4>Data Analysis</h4>
+              <p>Exploratory data analysis Sales Coffee</p>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </div>
+        </a>
+
+        <a
+          href="https://github.com/AufaNanda/AufaEkananda_DataProject/tree/0bb23a27cf3f6e47e40e46fd7fbd8dc2837e45cf/Exploratory%20data%20analysis%20Sales%20Bike"
+          target="_blank"
+          class="project-link"
+        >
+          <div class="project-box">
+            <img src="assets/IMAGES/Sales-Bike.jpg" alt="" />
+            <div class="project-layer">
+              <h4>Data Analysis</h4>
+              <p>Exploratory data analysis Sales Bike</p>
+              <i class="fa-solid fa-up-right-from-square"></i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION DESIGN -->
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me</span></h2>
+
+      <form id="contact-form">
+        <div class="input-box">
+          <input
+            type="text"
+            name="name"
+            id="name_id"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            type="email"
+            id="email_id"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+        </div>
+
+        <div class="input-box">
+          <input
+            type="number"
+            name="phone"
+            id="phone_id"
+            placeholder="Mobile Number"
+          />
+          <input
+            type="text"
+            name="subject"
+            id="subject_id"
+            placeholder="Email Subject"
+          />
+        </div>
+
+        <textarea
+          name="message"
+          id="message_id"
+          cols="30"
+          rows="10"
+          placeholder="Your Message"
+          required
+        ></textarea>
+        <input
+          type="submit"
+          value="Send Message"
+          class="btn"
+          onclick="sendMail()"
+        />
+      </form>
+    </section>
+
+    <!-- FOOTER DESIGN  -->
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2024 by @aufaekananda | All Right Reserved.</p>
+      </div>
+
+      <div class="footer-iconTop">
+        <a href="#home"><i class="fa-solid fa-angle-up"></i></a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+    <!-- MAIN JS  -->
+    <script src="assets/JS/main.js"></script>
+  </body>
+</html>

@@ -266,12 +266,66 @@ span {
   color: #333;
 }
 
+section.Organization {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  background: var(--bg-color);
+  border-radius: 8px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 0 0 48%; /* Two columns */
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.heading_organization {
+  font-size: 1.8em;
+  color: #35424a;
+  margin-bottom: 10px;
+}
+
+.column-left,
+.column-right {
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.column-left:hover,
+.column-right:hover {
+  transform: translateY(-5px); /* Move up on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+.title_job {
+  font-size: 2em; /* Increased font size for job titles */
+  margin: 0;
+  color: #333;
+}
+
+.date_job {
+  font-size: 1.5em; /* Increased font size for dates */
+  margin: 5px 0 0 0;
+  color: #666;
+}
+
 .project {
   background: var(--sn-bg-color);
 }
 
 .project h2 {
-  margin-bottm: 4rem;
+  margin-bottom: 4rem;
 }
 
 .project-container {
@@ -354,6 +408,47 @@ span {
   display: flex;
 }
 
+/* .information-container {
+  width: 100%; 
+  max-width: 600px; 
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  margin: 0 20px; 
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 15px 0;
+}
+
+.information-container a {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #007bff;
+  background-color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.information-container a:hover {
+  background-color: #007bff;
+  color: white;
+} */
+
 .contact h2 {
   margin-bottom: 3rem;
 }
@@ -398,7 +493,7 @@ span {
 .footer {
   display: flex;
   justify-content: space-between;
-  align-itemns: center;
+  align-items: center;
   flex-wrap: wrap;
   padding: 2rem 9%;
   background: var(--sn-bg-color);

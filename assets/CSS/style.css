@@ -449,45 +449,58 @@ li {
   color: white;
 } */
 
-.contact h2 {
-  margin-bottom: 3rem;
-}
 
-.contact form {
-  max-width: 70rem;
-  margin: 1rem auto;
+/* Wrapper styling */
+.contact-wrapper {
+  background-color: #f0f0f0;
+  padding: 3rem 3rem;
   text-align: center;
-  margin-bottom: 3rem;
 }
-
-.contact form .input-box {
+/* Contact container styling */
+.contact-container {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.contact form .input-box input,
-.contact form textarea {
-  width: 100%;
-  padding: 1.5rem;
-  font-size: 1.6rem;
-  color: var(--text-color);
-  background: var(--sn-bg-color);
-  border-radius: 0.8rem;
-  margin: 0.7rem 0;
+.contact-info {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 4rem;
+  max-width: 1000px; /* Max width untuk menyesuaikan ukuran */
+  width: 400%;
+  text-align: center;
+  
 }
 
-.contact form .input-box input {
-  width: 49%;
+/* Description styling */
+.contact-description {
+  font-size: 4rem;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
 
-.contact form textarea {
-  resize: none;
+/* Contact list styling */
+.contact-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.contact form .btn {
-  margin-top: 2rem;
-  cursor: pointer;
+.contact-list li {
+  font-size: 3rem;
+  margin: 3.5rem 0;
+}
+
+.contact-list a {
+  color: #705c53;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
 }
 
 .footer {
@@ -495,12 +508,12 @@ li {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2rem 9%;
+  padding: 1rem 9%;
   background: var(--sn-bg-color);
 }
 
 .footer-text {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
 }
 
 .footer-iconTop {

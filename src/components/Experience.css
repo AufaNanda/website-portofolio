@@ -1,0 +1,326 @@
+/* ============================================================
+   EXPERIENCE
+   A centre-spine timeline, newest at the top. Each photo floats
+   in a faceted crystal so the mismatched source sizes read as
+   one shape. Layout alternates side to side down the spine.
+   ============================================================ */
+
+.xp {
+  --link-line: rgba(127, 212, 255, 0.28);
+  --ember: #c98a4b;
+
+  position: relative;
+  padding: clamp(80px, 14vh, 170px) clamp(20px, 5vw, 64px) clamp(70px, 12vh, 140px);
+  background:
+    radial-gradient(120% 60% at 50% 18%, #0a111c 0%, #070a11 50%, var(--bg-void) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- Intro ---------- */
+
+.xp__intro {
+  text-align: center;
+  margin: 0 auto clamp(40px, 8vh, 84px);
+}
+
+.xp__title {
+  margin: 0;
+  font-size: clamp(26px, 4.4vw, 46px);
+  font-weight: 300;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  text-shadow: 0 0 34px rgba(127, 212, 255, 0.2);
+}
+
+.xp__rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(340px, 70%);
+  margin: 22px auto 0;
+}
+
+.xp__rule-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201, 138, 75, 0), var(--ember), rgba(201, 138, 75, 0));
+}
+
+.xp__rule-mark {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  transform: rotate(45deg);
+  border: 1px solid var(--ember);
+  background: rgba(201, 138, 75, 0.18);
+}
+
+/* ---------- Timeline ---------- */
+
+.xp__timeline {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+/* the spine */
+.xp__timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 6px;
+  bottom: 46px;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--link-line) 5%,
+    var(--link-line) 90%,
+    transparent
+  );
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 1s ease 0.1s;
+}
+
+.xp.is-revealed .xp__timeline::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.xp__row {
+  display: grid;
+  grid-template-columns: 1fr 72px 1fr;
+  align-items: start;
+  margin-bottom: clamp(48px, 9vh, 108px);
+}
+
+.xp__row:last-child {
+  margin-bottom: 0;
+}
+
+/* fixed placement — explanation always left, photo + period always right */
+.xp__body { grid-column: 1; justify-self: end; }
+.xp__spine { grid-column: 2; }
+.xp__media { grid-column: 3; justify-self: start; }
+
+/* ---------- Media: floating crystal ---------- */
+
+.xp__media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: start;
+  opacity: 0;
+  transition:
+    opacity 0.7s ease calc(var(--i) * 0.12s),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.12s);
+}
+
+.xp__media { transform: translateX(26px); }
+
+.xp__crystal {
+  --clip: polygon(50% 0%, 100% 24%, 100% 76%, 50% 100%, 0% 76%, 0% 24%);
+  position: relative;
+  width: clamp(176px, 22vw, 240px);
+  aspect-ratio: 5 / 6;
+  /* nudge the gem's top vertex down to sit level with the role text */
+  margin: 10px 0 0;
+  clip-path: var(--clip);
+  background: #0a0f17;
+  filter:
+    drop-shadow(0 0 1px rgba(127, 212, 255, 0.65))
+    drop-shadow(0 0 22px rgba(127, 212, 255, 0.24));
+  animation: xp-float 7s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -2.3s);
+}
+
+.xp__crystal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.92;
+}
+
+.xp__facet {
+  position: absolute;
+  inset: 0;
+  clip-path: var(--clip);
+  background: linear-gradient(
+    125deg,
+    rgba(255, 255, 255, 0.2),
+    rgba(255, 255, 255, 0) 38%,
+    rgba(255, 255, 255, 0) 62%,
+    rgba(127, 212, 255, 0.16)
+  );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+/* Symmetric drift around translateY(0) — equal time above and below its
+   layout position — so the crystal never reads as systematically higher
+   than the role text it's aligned with. */
+@keyframes xp-float {
+  0%, 50%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-6px) rotate(-1deg); }
+  75% { transform: translateY(6px) rotate(1deg); }
+}
+
+.xp__period {
+  margin: 16px 0 0;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* ---------- Spine node ---------- */
+
+.xp__spine {
+  position: relative;
+  align-self: stretch;
+}
+
+.xp__node {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  width: 11px;
+  height: 11px;
+  background: var(--accent);
+  box-shadow: 0 0 14px var(--accent-glow);
+  opacity: 0;
+  transform: translateX(-50%) scale(0.4) rotate(45deg);
+  transition:
+    opacity 0.5s ease calc(0.2s + var(--i) * 0.12s),
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) calc(0.2s + var(--i) * 0.12s);
+}
+
+.xp.is-revealed .xp__node {
+  opacity: 1;
+  transform: translateX(-50%) scale(1) rotate(45deg);
+}
+
+/* ---------- Body ---------- */
+
+.xp__body {
+  position: relative;
+  max-width: 440px;
+  align-self: start;
+  opacity: 0;
+  transition:
+    opacity 0.7s ease calc(var(--i) * 0.12s),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.12s);
+}
+
+.xp__body { transform: translateX(-26px); }
+
+/* connector tick from the spine node to the card */
+.xp__body::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  right: -36px;
+  width: 36px;
+  height: 1px;
+  background: var(--link-line);
+}
+
+.xp.is-revealed .xp__media,
+.xp.is-revealed .xp__body {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.xp__role {
+  margin: 0;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-bright);
+}
+
+.xp__org {
+  margin: 5px 0 14px;
+  font-size: 12.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.xp__points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.xp__points li {
+  position: relative;
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.6;
+  font-weight: 300;
+  color: var(--text-soft);
+}
+
+.xp__points li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ---------- Responsive: single column ---------- */
+
+@media (max-width: 780px) {
+  .xp__timeline::before,
+  .xp__spine,
+  .xp__body::before {
+    display: none;
+  }
+
+  .xp__row {
+    grid-template-columns: 1fr;
+  }
+
+  .xp__media,
+  .xp__body {
+    grid-column: 1;
+    justify-self: stretch;
+    max-width: 520px;
+    margin-inline: auto;
+  }
+
+  /* photo leads on a stacked layout, text follows */
+  .xp__media {
+    order: -1;
+    margin-bottom: 22px;
+  }
+
+  .xp:not(.is-revealed) .xp__media,
+  .xp:not(.is-revealed) .xp__body {
+    transform: translateY(18px);
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .xp__crystal { animation: none; }
+
+  .xp__timeline::before,
+  .xp__media,
+  .xp__body,
+  .xp__node {
+    transition: none;
+  }
+}

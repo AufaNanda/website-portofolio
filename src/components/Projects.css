@@ -1,0 +1,307 @@
+/* ============================================================
+   PROJECTS
+   Archon-quest style banner cards on a filterable grid, four
+   across. Each banner catches a gentle wind. Category badges
+   ride the top-left corner as gold medallions.
+   ============================================================ */
+
+.pj {
+  --ember: #c98a4b;
+
+  position: relative;
+  padding: clamp(80px, 14vh, 170px) clamp(20px, 5vw, 64px) clamp(80px, 13vh, 150px);
+  background:
+    radial-gradient(120% 60% at 50% 16%, #0a111c 0%, #070a11 50%, var(--bg-void) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- Intro ---------- */
+
+.pj__intro {
+  text-align: center;
+  margin: 0 auto clamp(30px, 5vh, 52px);
+}
+
+.pj__title {
+  margin: 0;
+  font-size: clamp(26px, 4.4vw, 46px);
+  font-weight: 300;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  text-shadow: 0 0 34px rgba(127, 212, 255, 0.2);
+}
+
+.pj__rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(340px, 70%);
+  margin: 22px auto 0;
+}
+
+.pj__rule-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201, 138, 75, 0), var(--ember), rgba(201, 138, 75, 0));
+}
+
+.pj__rule-mark {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  transform: rotate(45deg);
+  border: 1px solid var(--ember);
+  background: rgba(201, 138, 75, 0.18);
+}
+
+/* ---------- Filter bar ---------- */
+
+.pj__filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 760px;
+  margin: 0 auto clamp(30px, 5vh, 52px);
+}
+
+.pj__pill {
+  padding: 7px 15px;
+  border: 1px solid var(--panel-line);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pj__pill:hover {
+  color: var(--text-soft);
+  border-color: rgba(127, 212, 255, 0.45);
+}
+
+.pj__pill.is-active {
+  color: #04121a;
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* ---------- Grid ---------- */
+
+.pj__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 26px);
+}
+
+.pj__empty {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.pj__cell {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.6s ease calc(var(--i) * 0.06s),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.06s);
+}
+
+.pj.is-revealed .pj__cell {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Banner card ---------- */
+
+.pj__card {
+  position: relative;
+  display: block;
+  border-radius: 5px;
+}
+
+.pj__card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* the layer that catches the wind — image and title plate move as one */
+.pj__wave {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid rgba(127, 212, 255, 0.16);
+  background: #0a0f17;
+  transform-origin: left center;
+  animation: pj-wave 6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.4s);
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+@keyframes pj-wave {
+  0%, 100% { transform: perspective(760px) rotateY(0deg) skewY(0deg); }
+  25% { transform: perspective(760px) rotateY(2.4deg) skewY(0.6deg); }
+  50% { transform: perspective(760px) rotateY(0deg) skewY(0deg); }
+  75% { transform: perspective(760px) rotateY(-2.4deg) skewY(-0.6deg); }
+}
+
+/* image area */
+.pj__banner {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.pj__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pj__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 11, 0.45) 0%,
+    rgba(5, 7, 11, 0) 26%,
+    rgba(5, 7, 11, 0.1) 68%,
+    rgba(5, 7, 11, 0.6) 100%
+  );
+}
+
+/* category flags, pinned to the banner's top-left corner — a small
+   black pennant carries each badge so it reads against any photo
+   instead of floating as a bare white cut-out. */
+.pj__badges {
+  position: absolute;
+  z-index: 2;
+  top: 9px;
+  left: 9px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: calc(100% - 18px);
+}
+
+.pj__flag {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 27px;
+  height: 18px;
+  padding-left: 3px;
+  background: #090c12;
+  clip-path: polygon(0 0, 76% 0, 100% 50%, 76% 100%, 0 100%);
+  filter: drop-shadow(0 0 1px rgba(201, 138, 75, 0.85)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
+}
+
+.pj__flag-icon {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+}
+
+/* caption — hidden until the banner is hovered or focused */
+.pj__reveal {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 11px;
+  background: rgba(5, 7, 11, 0.78);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  border-top: 1px solid rgba(201, 138, 75, 0.4);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ember);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  pointer-events: none;
+}
+
+.pj__card:hover .pj__reveal,
+.pj__card:focus-visible .pj__reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* title plate, below the banner */
+.pj__info {
+  padding: 10px 12px 11px;
+  border-top: 1px solid rgba(201, 138, 75, 0.35);
+}
+
+.pj__name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-bright);
+}
+
+/* hover / focus — straighten the flag, lift, brighten */
+.pj__card:hover .pj__wave,
+.pj__card:focus-visible .pj__wave {
+  animation: none;
+  transform: perspective(760px) rotateY(0) skewY(0) translateY(-6px) scale(1.015);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55), 0 0 26px var(--accent-glow);
+  border-color: var(--accent);
+}
+
+.pj__card:hover .pj__img,
+.pj__card:focus-visible .pj__img {
+  transform: scale(1.05);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1000px) {
+  .pj__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .pj__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 460px) {
+  .pj__grid { grid-template-columns: minmax(0, 1fr); max-width: 340px; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .pj__wave { animation: none; }
+  .pj__cell,
+  .pj__img,
+  .pj__wave { transition: none; }
+}

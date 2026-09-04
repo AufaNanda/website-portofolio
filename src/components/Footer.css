@@ -1,0 +1,35 @@
+.site-footer {
+  position: relative;
+  border-top: 1px solid var(--panel-line);
+  background: var(--bg-void);
+  padding: 20px clamp(20px, 5vw, 64px);
+}
+
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.site-footer__mark {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: var(--text-dim);
+}
+
+.site-footer__bracket {
+  color: var(--accent);
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.site-footer__copy {
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+}

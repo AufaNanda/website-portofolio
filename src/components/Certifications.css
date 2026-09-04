@@ -1,0 +1,214 @@
+/* ============================================================
+   CERTIFICATIONS
+   Same banner-card language as Projects, minus the filter bar
+   and badges. Cards are landscape (the certificates themselves
+   are documents) so the real text stays legible.
+   ============================================================ */
+
+.ct {
+  --ember: #c98a4b;
+
+  position: relative;
+  padding: clamp(80px, 14vh, 170px) clamp(20px, 5vw, 64px) clamp(80px, 13vh, 150px);
+  background:
+    radial-gradient(120% 60% at 50% 16%, #0a111c 0%, #070a11 50%, var(--bg-void) 100%);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ---------- Intro ---------- */
+
+.ct__intro {
+  text-align: center;
+  margin: 0 auto clamp(40px, 7vh, 76px);
+}
+
+.ct__title {
+  margin: 0;
+  font-size: clamp(26px, 4.4vw, 46px);
+  font-weight: 300;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-bright);
+  text-shadow: 0 0 34px rgba(127, 212, 255, 0.2);
+}
+
+.ct__rule {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: min(340px, 70%);
+  margin: 22px auto 0;
+}
+
+.ct__rule-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, rgba(201, 138, 75, 0), var(--ember), rgba(201, 138, 75, 0));
+}
+
+.ct__rule-mark {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  transform: rotate(45deg);
+  border: 1px solid var(--ember);
+  background: rgba(201, 138, 75, 0.18);
+}
+
+/* ---------- Grid ---------- */
+
+.ct__grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 26px);
+}
+
+.ct__cell {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.6s ease calc(var(--i) * 0.06s),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.06s);
+}
+
+.ct.is-revealed .ct__cell {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Banner card ---------- */
+
+.ct__card {
+  position: relative;
+  display: block;
+  border-radius: 5px;
+}
+
+.ct__card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* image and title plate move together as one flag */
+.ct__wave {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 5px;
+  border: 1px solid rgba(127, 212, 255, 0.16);
+  background: #0a0f17;
+  transform-origin: left center;
+  animation: ct-wave 6s ease-in-out infinite;
+  animation-delay: calc(var(--i) * -1.4s);
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+@keyframes ct-wave {
+  0%, 100% { transform: perspective(760px) rotateY(0deg) skewY(0deg); }
+  25% { transform: perspective(760px) rotateY(2.4deg) skewY(0.6deg); }
+  50% { transform: perspective(760px) rotateY(0deg) skewY(0deg); }
+  75% { transform: perspective(760px) rotateY(-2.4deg) skewY(-0.6deg); }
+}
+
+/* image area */
+.ct__banner {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.ct__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 15%;
+  transition: transform 0.5s ease;
+}
+
+.ct__scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 11, 0.28) 0%,
+    rgba(5, 7, 11, 0) 30%,
+    rgba(5, 7, 11, 0) 76%,
+    rgba(5, 7, 11, 0.28) 100%
+  );
+}
+
+/* title plate, below the banner */
+.ct__info {
+  padding: 10px 12px 11px;
+  border-top: 1px solid rgba(201, 138, 75, 0.35);
+}
+
+.ct__name {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: clamp(13px, 1.5vw, 15px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--text-bright);
+}
+
+.ct__caption {
+  display: block;
+  margin-top: 4px;
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--ember);
+}
+
+/* hover / focus — straighten the flag, lift, brighten */
+.ct__card:hover .ct__wave,
+.ct__card:focus-visible .ct__wave {
+  animation: none;
+  transform: perspective(760px) rotateY(0) skewY(0) translateY(-6px) scale(1.015);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.55), 0 0 26px var(--accent-glow);
+  border-color: var(--accent);
+}
+
+.ct__card:hover .ct__img,
+.ct__card:focus-visible .ct__img {
+  transform: scale(1.05);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1000px) {
+  .ct__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .ct__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 460px) {
+  .ct__grid { grid-template-columns: minmax(0, 1fr); max-width: 340px; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .ct__wave { animation: none; }
+  .ct__cell,
+  .ct__img,
+  .ct__wave { transition: none; }
+}

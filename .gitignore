@@ -1,0 +1,18 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vite
+
+# AI tooling / skill caches — local to this machine, not part of the site
+.agents/
+.claude/
+skills-lock.json
+
+# Original design assets — already copied into public/ and src/assets/
+# where the site actually reads them from. Kept locally for future edits.
+design-source/
+
+# Personal working note, not part of the project
+LIBRARY_HACKED.txt

@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
+import { asset } from '../lib/paths.js';
 import './Projects.css';
 
 /* Category system — ids drive both the filter bar and the badge coins. */
 const CATEGORIES = [
-  { id: 'data-analytics', label: 'Data Analytics', badge: '/badges/data-analytics.png' },
-  { id: 'data-science-ai', label: 'Data Science and AI', badge: '/badges/data-science-ai.png' },
-  { id: 'data-engineer', label: 'Data Engineer', badge: '/badges/data-engineer.png' },
-  { id: 'web-development', label: 'Web Development', badge: '/badges/web-development.png' },
+  { id: 'data-analytics', label: 'Data Analytics', badge: asset('badges/data-analytics.png') },
+  { id: 'data-science-ai', label: 'Data Science and AI', badge: asset('badges/data-science-ai.png') },
+  { id: 'data-engineer', label: 'Data Engineer', badge: asset('badges/data-engineer.png') },
+  { id: 'web-development', label: 'Web Development', badge: asset('badges/web-development.png') },
 ];
 const CAT = Object.fromEntries(CATEGORIES.map((c) => [c.id, c]));
 
@@ -16,7 +17,7 @@ const PROJECTS = [
   {
     id: 'bike',
     name: 'Exploratory Data Analysis: Sales Bike',
-    image: '/projects/bike.jpg',
+    image: asset('projects/bike.jpg'),
     caption: 'Rental demand forecasting',
     categories: ['data-analytics'],
     href: 'https://github.com/AufaNanda/Exploratory-data-analysis-Sales-Bike',
@@ -24,7 +25,7 @@ const PROJECTS = [
   {
     id: 'heart-disease',
     name: 'Classification of Heart Disease Indicator',
-    image: '/projects/heart-disease.jpg',
+    image: asset('projects/heart-disease.jpg'),
     caption: 'Clinical risk classification',
     categories: ['data-science-ai'],
     href: 'https://github.com/AufaNanda/Classification_indicators_of_Heart_Disease',
@@ -32,7 +33,7 @@ const PROJECTS = [
   {
     id: 'sales-coffee',
     name: 'Identifying Target Customers for Starbucks',
-    image: '/projects/sales-coffee.png',
+    image: asset('projects/sales-coffee.png'),
     caption: 'Sales performance dashboard',
     categories: ['data-science-ai'],
     href: 'https://github.com/AufaNanda/Identifying-Target-Customers-for-Starbucks',
@@ -40,7 +41,7 @@ const PROJECTS = [
   {
     id: 'hotel',
     name: 'Profiling Destinasi Wisata',
-    image: '/projects/hotel.jpg',
+    image: asset('projects/hotel.jpg'),
     caption: 'Cancellation & revenue study',
     categories: ['data-science-ai'],
     href: 'https://github.com/AufaNanda/Profiling-Destinasi-Wisata-di-Indonesia',
@@ -48,7 +49,7 @@ const PROJECTS = [
   {
     id: 'weather',
     name: 'Weather Predictions in the Asian Region',
-    image: '/projects/weather.jpg',
+    image: asset('projects/weather.jpg'),
     caption: 'Automated ETL & live dashboard',
     categories: ['data-science-ai'],
     href: 'https://github.com/AufaNanda/Weather-Predictions-In-The-Asian-Region',
@@ -56,7 +57,7 @@ const PROJECTS = [
   {
     id: 'honor-of-kings',
     name: 'Honor of Kings Sentiment Analysis',
-    image: '/projects/honor-of-kings.png',
+    image: asset('projects/honor-of-kings.png'),
     caption: 'NLP sentiment analysis',
     categories: ['data-science-ai'],
     href: 'https://github.com/AufaNanda/Honor-Of-King---Sentiment-Analysis',

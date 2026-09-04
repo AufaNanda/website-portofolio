@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import portrait from '../assets/Aufa_PP.jpg';
+import { asset } from '../lib/paths.js';
 import './ProfileSection.css';
 
 // Left panel links.
 const LINKS = [
-  { label: 'RESUME (CV)', href: '/Aufa-Ekananda-Resume.pdf', download: true },
+  { label: 'RESUME (CV)', href: asset('Aufa-Ekananda-Resume.pdf'), download: true },
   { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/aufa-ekananda/' },
   { label: 'GITHUB', href: 'https://github.com/AufaNanda' },
   { label: 'INSTAGRAM', href: 'https://www.instagram.com/aufaekananda/' },

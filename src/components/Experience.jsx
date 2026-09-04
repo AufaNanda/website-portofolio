@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { asset } from '../lib/paths.js';
 import './Experience.css';
 
 /* Newest first — top of the timeline. Every row is the same shape:
@@ -9,7 +10,7 @@ const ENTRIES = [
     role: 'Data Scientist Intern',
     org: 'Telkom Indonesia',
     period: 'Feb 2025 – Feb 2026',
-    image: '/experience/telkom.jpeg',
+    image: asset('experience/telkom.jpeg'),
     points: [
       'Conducted daily ad-hoc analysis using SQL in BigQuery from Product Manager and business-division requests.',
       'Designed and developed a data mart, transformed and used across 10+ dynamic Looker Studio dashboards.',
@@ -23,7 +24,7 @@ const ENTRIES = [
     role: 'General Manager of Relation Expansion',
     org: 'HIMTI BINUS University',
     period: 'Feb 2024 – Mar 2025',
-    image: '/experience/himti.jpg',
+    image: asset('experience/himti.jpg'),
     points: [
       'Supervised a 154-member team across two divisions — social media content, and external media partnerships with internal bonding events.',
       'Social Media Lead for HIMTI: content development, audience interaction, and platform growth — 6,000+ on Instagram, 7,500+ on Facebook, 2,300+ on X, 1,000+ on LinkedIn, 200+ on TikTok.',
@@ -34,7 +35,7 @@ const ENTRIES = [
     role: 'Core Team — Publication, Relation & Marketing',
     org: 'GDSC BINUS Malang',
     period: 'Oct 2023 – Aug 2024',
-    image: '/experience/gdsc.jpeg',
+    image: asset('experience/gdsc.jpeg'),
     points: [
       'Maintained brand identity and created social media content for the GDSC BINUS Malang chapter.',
       'Engaged external partners to foster relationships and establish strategic collaborations.',

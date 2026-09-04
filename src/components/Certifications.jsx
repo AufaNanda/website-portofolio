@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { asset } from '../lib/paths.js';
 import './Certifications.css';
 
 /* Real data, read straight off each certificate image; hrefs are the
@@ -9,7 +10,7 @@ const CERTS = [
     title: 'Google Advanced Data Analytics',
     issuer: 'Google · Coursera',
     date: 'Feb 18, 2025',
-    image: '/certificates/google.png',
+    image: asset('certificates/google.png'),
     href: 'https://www.coursera.org/account/accomplishments/specialization/R3NV7K5TG1EH',
   },
   {
@@ -17,7 +18,7 @@ const CERTS = [
     title: 'Fundamentals of Deep Learning',
     issuer: 'NVIDIA',
     date: 'Aug 24, 2024',
-    image: '/certificates/nvidia.png',
+    image: asset('certificates/nvidia.png'),
     href: 'https://learn.nvidia.com/certificates?id=TLMqW-HbSZ2kvC6xABIw3g',
   },
   {
@@ -25,7 +26,7 @@ const CERTS = [
     title: 'Data Analysis with Python',
     issuer: 'IBM · Cognitive Class',
     date: 'May 17, 2024',
-    image: '/certificates/da-python.png',
+    image: asset('certificates/da-python.png'),
     href: 'https://courses.cognitiveclass.ai/certificates/a9983aa66679414ab66b7c13c68db048',
   },
   {
@@ -33,7 +34,7 @@ const CERTS = [
     title: 'SQL and Relational Databases 101',
     issuer: 'IBM · Cognitive Class',
     date: 'May 17, 2024',
-    image: '/certificates/sql-relational.png',
+    image: asset('certificates/sql-relational.png'),
     href: 'https://courses.cognitiveclass.ai/certificates/97573b978d984590a097f92e90a6eca6',
   },
   {
@@ -41,7 +42,7 @@ const CERTS = [
     title: 'SQL (Basic)',
     issuer: 'HackerRank',
     date: 'Sep 22, 2024',
-    image: '/certificates/sql-basic.png',
+    image: asset('certificates/sql-basic.png'),
     href: 'https://www.hackerrank.com/certificates/df28e8cd5e57',
   },
   {
@@ -49,7 +50,7 @@ const CERTS = [
     title: 'SQL (Intermediate)',
     issuer: 'HackerRank',
     date: 'Nov 10, 2024',
-    image: '/certificates/sql-intermediate.png',
+    image: asset('certificates/sql-intermediate.png'),
     href: 'https://www.hackerrank.com/certificates/1c17498f1de8',
   },
   {
@@ -57,7 +58,7 @@ const CERTS = [
     title: 'SQL (Advanced)',
     issuer: 'HackerRank',
     date: 'Feb 9, 2026',
-    image: '/certificates/sql-advanced.png',
+    image: asset('certificates/sql-advanced.png'),
     href: 'https://www.hackerrank.com/certificates/aae8af56547c',
   },
 ];

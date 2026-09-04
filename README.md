@@ -34,6 +34,21 @@ npm run build
 npm run preview
 ```
 
+## Deploy
+
+Live at **https://aufananda.github.io/website-portofolio/** once the first
+push lands. `.github/workflows/deploy.yml` builds and publishes to GitHub
+Pages automatically on every push to `main` (also runnable by hand from the
+Actions tab). One-time setup on GitHub: **Settings → Pages → Source → GitHub
+Actions**.
+
+Because the site lives under the `/website-portofolio/` sub-path rather than
+the domain root, every asset URL is built through `import.meta.env.BASE_URL`
+(see `src/lib/paths.js`, and `%BASE_URL%` in `index.html`) instead of a
+hardcoded `/xxx` string — that's what `vite.config.js`'s `base` option
+controls, and it's what makes `npm run dev` and the deployed build resolve
+images/PDF/favicon the same way.
+
 ## Folder structure — what's published, what isn't
 
 ```

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { asset } from '../lib/paths.js';
 import './SkillTree.css';
 
 /* Constellation field is authored in a 1000 x 640 coordinate space.
@@ -63,7 +64,7 @@ function buildEdges(nodes) {
 
 const EDGES = buildEdges(SKILLS);
 
-const logoSrc = (id) => `/skills/${id}.png`;
+const logoSrc = (id) => asset(`skills/${id}.png`);
 
 /* A handful of ambient background stars — a few twinkle slowly. */
 const STARS = [
